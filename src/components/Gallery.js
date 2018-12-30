@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Lightbox from 'react-images';
 
+
 class Gallery extends Component {
     constructor () {
         super();
@@ -79,6 +80,7 @@ class Gallery extends Component {
             </div>
         );
     }
+    
     render () {
         return (
             <div>
