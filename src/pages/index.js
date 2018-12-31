@@ -6,62 +6,49 @@ import Gallery from '../components/Gallery'
 import * as emailjs from 'emailjs-com'
 import Swal from 'sweetalert2'
 
-import thumb01 from '../assets/images/thumbs/01.jpg'
-import thumb02 from '../assets/images/thumbs/02.jpg'
-import thumb03 from '../assets/images/thumbs/03.jpg'
-import thumb04 from '../assets/images/thumbs/04.jpg'
-import thumb05 from '../assets/images/thumbs/05.jpg'
-import thumb06 from '../assets/images/thumbs/06.jpg'
-
-import full01 from '../assets/images/fulls/01.jpg'
-import full02 from '../assets/images/fulls/02.jpg'
-import full03 from '../assets/images/fulls/03.jpg'
-import full04 from '../assets/images/fulls/04.jpg'
-import full05 from '../assets/images/fulls/05.jpg'
-import full06 from '../assets/images/fulls/06.jpg'
-
 const ZOOMIE_IMGS = [
   {
     id: '1',
-    src: full01,
-    thumbnail: thumb01,
-    caption: 'Landing',
-    description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
+    src: 'https://s3.amazonaws.com/zoomie/Zoomie_landing.png',
+    thumbnail: 'https://s3.amazonaws.com/zoomie/Zoomie_landing.png',
+    caption: 'Landing Page',
+    description: 'A modern and clean landing page',
   },
   {
     id: '2',
-    src: full02,
-    thumbnail: thumb02,
-    caption: 'Dashboard',
-    description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
+    src: 'https://s3.amazonaws.com/zoomie/dashboard.png',
+    thumbnail: 'https://s3.amazonaws.com/zoomie/dashboard.png',
+    caption: 'Dashboard View',
+    description: 'Simple illustratons on dashboard view',
   },
   {
     id: '3',
-    src: full03,
-    thumbnail: thumb03,
-    caption: 'ID Scanner',
-    description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
+    src: 'https://s3.amazonaws.com/zoomie/zoomie-form.png',
+    thumbnail: 'https://s3.amazonaws.com/zoomie/zoomie-form.png',
+    caption: 'Form Wizard',
+    description: 'Users manually fill out their info',
   },
   {
     id: '4',
-    src: full04,
-    thumbnail: thumb04,
-    caption: 'Payment Integration',
-    description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
+    src: 'https://s3.amazonaws.com/zoomie/DLScanner.png',
+    thumbnail: 'https://s3.amazonaws.com/zoomie/DLScanner.png',
+    caption: 'ID Scanner',
+    description: 'Users can upload their ID instead of filling out forms',
   },
   {
     id: '5',
-    src: full05,
-    thumbnail: thumb05,
-    caption: 'Admin Page',
-    description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
+    src: 'https://s3.amazonaws.com/zoomie/payment.png',
+    thumbnail: 'https://s3.amazonaws.com/zoomie/payment.png',
+    caption: 'Payment',
+    description: `Stripe's payment platform was used to process credit cards`,
   },
   {
     id: '6',
-    src: full06,
-    thumbnail: thumb06,
+    src: 'https://s3.amazonaws.com/zoomie/Customer-notify.png',
+    thumbnail: 'https://s3.amazonaws.com/zoomie/Customer-notify.png',
     caption: 'Customer Notifcation',
-    description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.',
+    description:
+      'Administrators can write a custom email messages to customers',
   },
 ]
 
@@ -126,7 +113,7 @@ class HomeIndex extends React.Component {
       .then(
         response => {
           console.log('SUCCESS!', response.status, response.text)
-          Swal('Email Sent!', 'I will contact you soon :D', 'success')
+          Swal('Email Sent!', 'I will contact you soon', 'success')
           this.setState({ name: '', email: '', message: '' })
         },
         err => {
@@ -172,6 +159,17 @@ class HomeIndex extends React.Component {
               one. Do you have an exciting project and want to collaborate, or
               just nerd out and talk about tech/cars feel free to contact me!
             </p>
+            <header className="major">
+              <h2>Skills</h2>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                }}
+              />
+            </header>
             {/* <ul className="actions">
                             <li><a href="#" className="button">Learn More</a></li>
                         </ul> */}
@@ -180,6 +178,17 @@ class HomeIndex extends React.Component {
           <section id="two">
             <h1>Portfolio</h1>
             <h2>Zoomie</h2>
+            <h4>Technologies: React • Redux • Node • Express • Auth0 • SQL • SASS • Stripe • Nodemailer • AWS SES </h4>
+            <p>
+              Zoomie is a full stack web application that allows users to get a
+              replacement ID/Drivers License without having to visit the DMV by
+              uploading a picture of their ID/Drivers License.
+            </p>
+            <ul>
+              <li>Scanner feature parses ID/DL image into base64 then utilizes 3rd party API and returns JSON objects</li>
+              <li>Authentication-protected admin pages via Auth0 and Google Auth-ID</li>
+              <li>Payment processing was handled through Stripe payment platform</li>
+            </ul>
 
             <Gallery
               images={ZOOMIE_IMGS.map(
