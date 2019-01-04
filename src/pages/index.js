@@ -80,7 +80,7 @@ const HOGWART_IMGS = [
     thumbnail: 'https://s3.amazonaws.com/hp-project/messaging.png',
     caption: 'Firebase Messaging',
     description:
-      'We implemented Firebase for our messaging/direct messaging feature. The messaging app has hot reloading and shows messages in real time.',
+      'We implemented Firebase for our direct messaging feature. The messaging features hot reloading.',
   },
 ]
 
@@ -133,7 +133,7 @@ class HomeIndex extends React.Component {
     this.gotoNext()
   }
   submitHandler = () => {
-    // console.log('hit')
+    // console.log('email hit!')
     const { name, email, message } = this.state
     emailjs
       .send(
@@ -160,11 +160,16 @@ class HomeIndex extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     const siteTitle = 'Patric Khiev'
     const siteDescription = 'Patric Khiev Portfolio Site'
 
     const skillsLogo = [
+      //mapping over images and using title for text & alt
+      {
+        url: 'https://s3.amazonaws.com/portfolio-gatsby/gitLogo.png',
+        title: 'Git',
+      },
       {
         url: 'https://s3.amazonaws.com/portfolio-gatsby/html5-original.svg',
         title: 'HTML5',
@@ -173,22 +178,49 @@ class HomeIndex extends React.Component {
         url: 'https://s3.amazonaws.com/portfolio-gatsby/css3-original.svg',
         title: 'CSS3',
       },
+      {
+        url: 'https://s3.amazonaws.com/portfolio-gatsby/sass-original.svg',
+        title: 'SASS',
+      },
+      {
+        url: 'https://s3.amazonaws.com/portfolio-gatsby/javascript-plain.svg',
+        title: 'JavaScript',
+      },
+      {
+        url:
+          'https://s3.amazonaws.com/portfolio-gatsby/react-logo.png',
+        title: 'React',
+      },
+      {
+        url: 'https://s3.amazonaws.com/portfolio-gatsby/redux.svg',
+        title: 'Redux',
+      },
+      {
+        url: 'https://s3.amazonaws.com/portfolio-gatsby/nodejs-original.svg',
+        title: 'Node',
+      },
+      {
+        url: 'https://s3.amazonaws.com/portfolio-gatsby/express-original.svg',
+        title: 'Express',
+      },
+      {
+        url:
+          'https://s3.amazonaws.com/portfolio-gatsby/postgresql-original.svg',
+        title: 'PostgreSQL',
+      },
     ].map((e, i) => {
       return (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            alignContent: 'center',
-            size: '100px',
-          }}
-          key={i}
-        >
-          <img src={e.url} alt={e.title} />
-          {/* <h4>{e.title}</h4> */}
+        <div key={i}>
+          <img
+            src={e.url}
+            alt={e.title}
+            style={{
+              height: '65px', display: 'flex', justifyContent: 'space-around'
+        
+          
+            }}
+          />
+          <h5>{e.title}</h5>
         </div>
       )
     })
@@ -220,10 +252,21 @@ class HomeIndex extends React.Component {
               one. Do you have an exciting project and want to collaborate, or
               just nerd out and talk about tech/cars feel free to contact me!
             </p>
-            <header className="major">
+            <div className="major">
               <h2>Skills</h2>
-              {skillsLogo}
-            </header>
+              <div
+                style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  justifyContent: 'space-around',
+                  alignItems: 'baseline',
+                  textAlign: 'center',
+                  width: '100%'
+                }}
+              >
+                {skillsLogo}
+              </div>
+            </div>
           </section>
           <section id="two">
             <h1>Projects</h1>
