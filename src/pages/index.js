@@ -52,6 +52,38 @@ const ZOOMIE_IMGS = [
   },
 ]
 
+const HOGWART_IMGS = [
+  {
+    id: '1',
+    src: 'https://s3.amazonaws.com/hp-project/Subscriptoins.png',
+    thumbnail: 'https://s3.amazonaws.com/hp-project/Subscriptoins.png',
+    caption: 'Subscriptions Page',
+    description: 'Users can quickly view all the forums they are subscribed to',
+  },
+  {
+    id: '2',
+    src: 'https://s3.amazonaws.com/hp-project/Bookmarks.png',
+    thumbnail: 'https://s3.amazonaws.com/hp-project/Bookmarks.png',
+    caption: 'Bookmarks Page',
+    description: 'This is where users can see all the bookmarked post',
+  },
+  {
+    id: '3',
+    src: 'https://s3.amazonaws.com/hp-project/Daily+Prophet.png',
+    thumbnail: 'https://s3.amazonaws.com/hp-project/Daily+Prophet.png',
+    caption: 'Main News Feed',
+    description: 'This is the main news feed of all users',
+  },
+  {
+    id: '4',
+    src: 'https://s3.amazonaws.com/hp-project/messaging.png',
+    thumbnail: 'https://s3.amazonaws.com/hp-project/messaging.png',
+    caption: 'Firebase Messaging',
+    description:
+      'We implemented Firebase for our messaging/direct messaging feature. The messaging app has hot reloading and shows messages in real time.',
+  },
+]
+
 class HomeIndex extends React.Component {
   constructor() {
     super()
@@ -132,6 +164,35 @@ class HomeIndex extends React.Component {
     const siteTitle = 'Patric Khiev'
     const siteDescription = 'Patric Khiev Portfolio Site'
 
+    const skillsLogo = [
+      {
+        url: 'https://s3.amazonaws.com/portfolio-gatsby/html5-original.svg',
+        title: 'HTML5',
+      },
+      {
+        url: 'https://s3.amazonaws.com/portfolio-gatsby/css3-original.svg',
+        title: 'CSS3',
+      },
+    ].map((e, i) => {
+      return (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            alignContent: 'center',
+            size: '100px',
+          }}
+          key={i}
+        >
+          <img src={e.url} alt={e.title} />
+          {/* <h4>{e.title}</h4> */}
+        </div>
+      )
+    })
+
     return (
       <Layout>
         <Helmet>
@@ -161,33 +222,81 @@ class HomeIndex extends React.Component {
             </p>
             <header className="major">
               <h2>Skills</h2>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  justifyContent: 'space-between',
-                  flexWrap: 'wrap',
-                }}
-              />
+              {skillsLogo}
             </header>
-            {/* <ul className="actions">
-                            <li><a href="#" className="button">Learn More</a></li>
-                        </ul> */}
           </section>
-
           <section id="two">
-            <h1>Portfolio</h1>
+            <h1>Projects</h1>
+            <h2>Hogwarts Social</h2>
+            <h4>
+              Technologies: React • Redux • Node • Express • Auth0 • SQL • SASS
+              • MUI • Nodemailer • AWS S3/SES
+            </h4>
+            <p>
+              A Harry Potter-themed social media platform inspired by
+              Reddit/Twitter/Instagram. Users can generate posts, like, comment,
+              bookmark, and subscribe to various forums.
+            </p>
+            <ul>
+              <li>
+                Utilized Material UI with custom-styling based on users being
+                sorted into 1 of 4 houses
+              </li>
+              <li>
+                Integrated email feature using Nodemailer with AWS SES
+                transporter
+              </li>
+              <li>Real-time private chat was implemented using Firebase</li>
+            </ul>
+
+            <Gallery
+              images={HOGWART_IMGS.map(
+                ({ id, src, thumbnail, caption, description }) => ({
+                  src,
+                  thumbnail,
+                  caption,
+                  description,
+                })
+              )}
+            />
+
+            <ul className="actions">
+              <li>
+                <a
+                  href="https://github.com/HP-social/hp-group-project"
+                  className="button"
+                >
+                  Visit Repo
+                </a>
+              </li>
+              <li>
+                <a href="http://hogwarts-social.com" className="button">
+                  Visit Site
+                </a>
+              </li>
+            </ul>
             <h2>Zoomie</h2>
-            <h4>Technologies: React • Redux • Node • Express • Auth0 • SQL • SASS • Stripe • Nodemailer • AWS SES </h4>
+            <h4>
+              Technologies: React • Redux • Node • Express • Auth0 • SQL • SASS
+              • Stripe • Nodemailer • AWS SES
+            </h4>
             <p>
               Zoomie is a full stack web application that allows users to get a
               replacement ID/Drivers License without having to visit the DMV by
               uploading a picture of their ID/Drivers License.
             </p>
             <ul>
-              <li>Scanner feature parses ID/DL image into base64 then utilizes 3rd party API and returns JSON objects</li>
-              <li>Authentication-protected admin pages via Auth0 and Google Auth-ID</li>
-              <li>Payment processing was handled through Stripe payment platform</li>
+              <li>
+                Scanner feature parses ID/DL image into base64 then utilizes 3rd
+                party API and returns JSON objects
+              </li>
+              <li>
+                Authentication-protected admin pages via Auth0 and Google
+                Auth-ID
+              </li>
+              <li>
+                Payment processing was handled through Stripe payment platform
+              </li>
             </ul>
 
             <Gallery
