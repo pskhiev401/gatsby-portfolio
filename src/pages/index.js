@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
+import Navbar from '../components/Navbar'
 // import Lightbox from 'react-images'
 import Gallery from '../components/Gallery'
 import * as emailjs from 'emailjs-com'
@@ -187,12 +188,11 @@ class HomeIndex extends React.Component {
         title: 'JavaScript',
       },
       {
-        url:
-          'https://s3.amazonaws.com/portfolio-gatsby/react-logo.png',
+        url: 'https://s3.amazonaws.com/portfolio-gatsby/react.png',
         title: 'React',
       },
       {
-        url: 'https://s3.amazonaws.com/portfolio-gatsby/redux.svg',
+        url: 'https://s3.amazonaws.com/portfolio-gatsby/redux.png',
         title: 'Redux',
       },
       {
@@ -215,9 +215,9 @@ class HomeIndex extends React.Component {
             src={e.url}
             alt={e.title}
             style={{
-              height: '65px', display: 'flex', justifyContent: 'space-around'
-        
-          
+              height: '58px',
+              display: 'flex',
+              justifyContent: 'space-evenly',
             }}
           />
           <h5>{e.title}</h5>
@@ -231,7 +231,6 @@ class HomeIndex extends React.Component {
           <title>{siteTitle}</title>
           <meta name="description" content={siteDescription} />
         </Helmet>
-
         <div id="main">
           <section id="one">
             <header className="major">
@@ -261,7 +260,7 @@ class HomeIndex extends React.Component {
                   justifyContent: 'space-around',
                   alignItems: 'baseline',
                   textAlign: 'center',
-                  width: '100%'
+                  width: '100%',
                 }}
               >
                 {skillsLogo}
