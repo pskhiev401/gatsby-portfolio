@@ -440,7 +440,9 @@ class HomeIndex extends React.Component {
                     <h3 className="icon fa-envelope-o">
                       <span className="label">Email</span>
                     </h3>
-                    <a href="#">webdev.patric@gmail.com</a>
+                    <a href="mailto:webdev.patric@gmail.com">
+                      webdev.patric@gmail.com
+                    </a>
                   </li>
                 </ul>
               </div>
