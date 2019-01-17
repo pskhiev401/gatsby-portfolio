@@ -269,7 +269,8 @@ class HomeIndex extends React.Component {
           </section>
           <section id="two">
             <h1>Projects</h1>
-            <h2>Hogwarts Social</h2>
+            <h2>Hogwarts Social (Group Developed)</h2>
+            <h4></h4>
             <h4>
               Technologies: React • Redux • Node • Express • Auth0 • SQL • SASS
               • MUI • Nodemailer • AWS S3/SES
@@ -317,7 +318,7 @@ class HomeIndex extends React.Component {
                 </a>
               </li>
             </ul>
-            <h2>Zoomie</h2>
+            <h2>Zoomie (Solo Developed) </h2>
             <h4>
               Technologies: React • Redux • Node • Express • Auth0 • SQL • SASS
               • Stripe • Nodemailer • AWS SES
