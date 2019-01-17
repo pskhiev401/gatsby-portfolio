@@ -278,18 +278,18 @@ class HomeIndex extends React.Component {
             <p>
               A Harry Potter-themed social media platform inspired by
               Reddit/Twitter/Instagram. Users can generate posts, like, comment,
-              bookmark, and subscribe to various forums.
+              bookmark, and subscribe to various forums. My responsiblities on this project: 
             </p>
             <ul>
+              <li>Created the Landing, Profile, and Subscriptions Page</li>
               <li>
                 Utilized Material UI with custom-styling based on users being
                 sorted into 1 of 4 houses
               </li>
               <li>
                 Integrated email feature using Nodemailer with AWS SES
-                transporter
+                Transporter
               </li>
-              <li>Real-time private chat was implemented using Firebase</li>
             </ul>
 
             <Gallery
