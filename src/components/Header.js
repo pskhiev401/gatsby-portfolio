@@ -15,7 +15,7 @@ class Header extends React.Component {
             {' '}
             <strong>I'm Patric Khiev,  <br /> a full stack developer,
             <br />
-            dog lover and car enthuiast.</strong>
+            dog lover, and car enthusiast.</strong>
             <br />
           </h1>
         </div>
